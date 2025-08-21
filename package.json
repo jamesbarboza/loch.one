@@ -19,7 +19,10 @@
   "homepage": "https://github.com/jamesbarboza/loch.one#readme",
   "devDependencies": {
     "@types/express": "^4.17.1",
-    "typescript": "^5.9.2"
+    "eslint": "^9.33.0",
+    "globals": "^16.3.0",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.40.0"
   },
   "dependencies": {
     "express": "^4.17.1"
