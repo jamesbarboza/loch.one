@@ -1,11 +1,12 @@
-const TradeService = require('../../src/services/TradeService').default;
-const User = require('../../src/models/User').default;
-const PortFolio = require('../../src/models/Portfolio').default;
 
 describe('TradeService', () => {
+  const TradeService = require('../../src/services/TradeService').default;
+  const User = require('../../src/models/User').default;
+  const PortFolio = require('../../src/models/Portfolio').default;
+  const PriceSimulator = require('../../src/services/PriceSimulator').default;
+
   beforeAll(() => {
     jest.clearAllMocks();
-    const PriceSimulator = require('../../src/services/PriceSimulator');
     global.priceSimulator = new PriceSimulator();
     global.priceSimulator.init();
 
@@ -71,7 +72,7 @@ describe('TradeService', () => {
     expect(user.portfolio.holdings[symbol][0].quantity).toBe(buyQuantity);
     expect(user.portfolio.holdings[symbol][0].purchasedAt).toBe(buyPrice);
     expect(user.portfolio.holdings[symbol][0].soldAt).toBe(null);
-    expect(user.portfolio.totalHoldingsForPrice(symbol, buyPrice)).toBe(buyQuantity);
+    expect(user.portfolio.totalHoldings(symbol)).toBe(buyQuantity);
 
     const sellQuantity = 1;
     const sellPrice = 94; // Assume this is the current price from the simulator
@@ -80,7 +81,7 @@ describe('TradeService', () => {
     expect(user.portfolio.holdings[symbol]).toBeDefined();
     expect(user.portfolio.holdings[symbol][0].quantity).toBe(buyQuantity - sellQuantity);
     expect(user.portfolio.holdings[symbol][0].soldAt).toBe(sellPrice);
-    expect(user.portfolio.totalHoldingsForPrice(symbol, sellPrice)).toBe(buyQuantity - sellQuantity);
+    expect(user.portfolio.totalHoldings(symbol)).toBe(buyQuantity - sellQuantity);
 
     // Check if the remaining holding is updated correctly
     expect(user.portfolio.holdings[symbol][1].quantity).toBe(buyQuantity - sellQuantity);

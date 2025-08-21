@@ -55,7 +55,7 @@ class TradeService {
       throw new Error(`INVALID_PRICE`);
     }
 
-    if (user.portfolio.totalHoldingsForPrice(symbol, price) < quantity) {
+    if (user.portfolio.totalHoldings(symbol) < quantity) {
       throw new Error(`INSUFFICIENT_HOLDINGS`);
     }
 

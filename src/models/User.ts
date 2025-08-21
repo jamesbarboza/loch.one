@@ -2,7 +2,7 @@
 class User {
   constructor(
     public id: string,
-    public portfolio: PortFolio
+    public portfolio: typeof PortFolio
   ) {}
 }
 

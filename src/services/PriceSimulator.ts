@@ -36,4 +36,4 @@ class PriceSimulator {
 }
 
 
-module.exports = PriceSimulator;
+export default PriceSimulator;
