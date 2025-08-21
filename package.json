@@ -4,7 +4,7 @@
   "description": "Node - v22.17.0",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tsc && node dist/app.js",
+    "dev": "npx tsc && node dist/src/app.js",
     "test": "jest --config jest.config.js"
   },
   "repository": {

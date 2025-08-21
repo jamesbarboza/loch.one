@@ -1,10 +1,12 @@
+
 const utils = require('../utils/utils');
 const User = require('../models/User').default;
+const PriceSimulator = require('./PriceSimulator').default;
 
 class TradeService {
-  public prices: PriceSimulator;
+  public prices: typeof PriceSimulator;
 
-  constructor (prices : PriceSimulator) {
+  constructor (prices : typeof PriceSimulator) {
     this.prices = prices;
   }
 

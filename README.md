@@ -35,6 +35,26 @@ simulation of price change
 npx tsc && node dist/app.js
 ```
 
+### Running unit test cases
+
+```
+npm test
+```
+
+### sample curl requests
+
+execute a trade
+```
+curl --location 'http://127.0.0.1:3000/trade/buy' \
+--header 'Content-Type: application/json' \
+--data '{
+    "userId": 1,
+    "symbol": "BTC",
+    "quantity": 2,
+    "price": 95
+}'
+```
+
 ### Running the linter
 
 ```

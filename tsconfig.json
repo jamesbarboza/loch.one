@@ -6,7 +6,7 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "dist",
-    "types": ["jest"]
+    // "types": ["jest"]
   },
   "include": ["src/**/*.ts", "tests/**/*.test.ts"],
   "lib": ["es2015"]
