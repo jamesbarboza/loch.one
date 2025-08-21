@@ -32,7 +32,8 @@ simulation of price change
 ### Running the app
 
 ```
-npx tsc && node dist/app.js
+npm install
+npx tsc && node dist/src/app.js
 ```
 
 ### Running unit test cases
@@ -60,3 +61,10 @@ curl --location 'http://127.0.0.1:3000/trade/buy' \
 ```
 npx eslint src/ --ext .ts
 ```
+
+
+### further changes
+
+1. fix import statements - migrate to import from require.
+2. move routers to different files
+3. changes to API data presentation? - can add more detail in realised / unrealised profits
