@@ -26,7 +26,7 @@ PnL
 simulation of price change
 - sample data file for a symbol, each entry in a array represents per second change? - should be testable via a unit test
 - PriceSimulator file contains an object with timestamps - price mapping for an interval of 10s
-- test-generator generate 100 records for a range between 90 - 100. 
+- test-generator generate 100 records for a range between 90 - 100.
 
 
 ### Running the app
@@ -44,7 +44,7 @@ npm test
 
 ### sample curl requests
 
-execute a trade
+execute a buy
 ```
 curl --location 'http://127.0.0.1:3000/trade/buy' \
 --header 'Content-Type: application/json' \
@@ -54,6 +54,28 @@ curl --location 'http://127.0.0.1:3000/trade/buy' \
     "quantity": 2,
     "price": 95
 }'
+```
+
+execute a sell
+```
+curl --location 'http://127.0.0.1:3000/trade/sell' \
+--header 'Content-Type: application/json' \
+--data '{
+    "userId": 1,
+    "symbol": "BTC",
+    "quantity": 2,
+    "price": 102
+}'
+```
+
+get current portfolio
+```
+curl --location 'http://127.0.0.1:3000/portfolio?userId=1'
+```
+
+get realised / unrealised PnL
+```
+curl --location 'http://127.0.0.1:3000/portfolio/pnl-report?userId=1'
 ```
 
 ### Running the linter
